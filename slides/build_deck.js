@@ -199,11 +199,11 @@ s.addNotes("Be plain about what the data can and cannot support.");
 pres.addSection({ title: "Closing" });
 s = pres.addSlide({ masterName: "LIGHT", sectionTitle: "Closing" });
 s.addText("Contributions and what is submitted", { placeholder: "title" });
-const team = [["Vedant Abhangrao", "Search strategy, screening log, mandate search"], ["Nilay Shahapure", "Data harmonisation, analysis code, figures, supplementary document"], ["Arjun Jhunjhunwala", "Cost and benchmark search, deflation, levelised cost"], ["Yash Krishnani", "Functionality and failure-mode search, report, presentation"]];
+const team = [["Nilay Shahapure", "Analysis (harmonisation, statistics, figures); report, supplementary document, presentation"], ["Vedant Abhangrao", "Analysis (screening rules, evidence grading, cost method, reconciliation)"], ["Arjun Jhunjhunwala", "Sourcing: locating documents, extracting source records"], ["Yash Krishnani", "Sourcing: locating documents, extracting source records"]];
 team.forEach((t, i) => card(s, 0.5, 1.15 + i * 0.9, 4.4, 0.8, t[0], t[1]));
 card(s, 5.1, 1.15, 4.4, 3.65, "Submitted",
-  "Report (2 pages, IMRaD) and Supplementary Information (15 pages: full tables, screening log, midway reconciliation, 168 source URLs)\n\nData: harmonised dataset for performance, cost, functionality, installation, failure modes and mandates; source extraction tables with a URL and verbatim quote for every number\n\nCode: Python scripts that rebuild the dataset, statistics, figures and tables\n\nEvery number in the report is traceable to a source URL and a verbatim quote.");
-body(s, "All four members extracted records and cross-checked each other's rows against the source quotes.", { x: 0.5, y: 4.9, w: 4.4, h: 0.28, fontSize: 9.5, color: C.accent4 });
+  "Report (2 pages, IMRaD) and Supplementary Information (15 pages: full tables, screening log, reconciliation with the mid-term report, 168 source URLs)\n\nData: harmonised dataset for performance, cost, functionality, installation, failure modes and mandates; source extraction tables with a URL and the quoted values for every number\n\nCode: Python scripts that rebuild the dataset, statistics, figures and tables\n\nEvery number in the report is traceable to a source URL and the sentence or values taken from the page.\n\nCode repository: github.com/nilay-shahapure/MIRAGE_CM617");
+body(s, "AI tools helped with code, figures, searches and drafting; the statement is in the Supplementary Information.", { x: 0.5, y: 4.9, w: 4.4, h: 0.28, fontSize: 9.5, color: C.accent4 });
 s.addNotes("Statement of contributions, as required for the final presentation.");
 
 (async () => {
