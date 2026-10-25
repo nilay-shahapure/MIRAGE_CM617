@@ -1,0 +1,101 @@
+\clearpage
+\section{Code used in this work}
+\label{sec:code}
+
+All numbers, tables and figures in the main report and in this document are produced by the scripts listed in this section. The scripts are supplied in the submission folder (\texttt{code} and \texttt{slides}) and are printed in full in Sections~\ref{sec:code-build} to \ref{sec:code-deck}. Nothing in the report was computed by hand.
+
+\subsection{What each script does and where its output is used}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{4.7cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.3cm}@{}}
+\caption{The five scripts, their inputs and outputs, and the parts of the report that depend on them.}\\
+\toprule
+Script & What it does & Reads and writes & Where the output appears \\
+\midrule
+\endfirsthead
+\toprule
+Script & What it does & Reads and writes & Where the output appears \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\texttt{build\_\allowbreak dataset.py} (Python) &
+Builds the harmonised dataset from the source extraction tables. For every performance record it computes theoretical potential ($A \times R \times C/1000$ with $C = 0.80$, and again with 0.70 and 0.90), the performance ratio, and the share of gross rain. It assigns the evidence tier with the one grading rule (observed, agency-reported, design-calculated). For every cost record it deflates the capital cost to 2024 rupees with the CPI-IW series, annualises it (capital recovery factor for 15 years at 8 percent, plus 2 percent per year maintenance; a 15 percent run is kept as a sensitivity) and divides by the design yield. It collapses the 90 failure-mode mentions into eleven categories and writes the screening counts. &
+Reads the seven source extraction tables in the \texttt{research} folder. Writes the eight tables in the \texttt{data} folder (performance, cost, functionality, compliance, failure modes in two forms, mandates, the CPI series and the screening log; the codebook in that folder describes every column). &
+Every potential, ratio and cost-per-kL value in the performance and cost tables of this document; the tier labels used throughout; the screening counts in Section 2; the eleven failure-mode categories in Section 6. \\
+\addlinespace
+\texttt{analysis.py} (Python) &
+Computes all statistics and draws all figures. Statistics: medians with bootstrap 95 percent confidence intervals (5,000 resamples), Mann-Whitney U between the observed and agency-reported tiers, the Warud regrading check, the runoff-coefficient sensitivity, site-level medians, an exploratory regression, Spearman correlation of cost against catchment area, Kruskal-Wallis across building scales, the observed-yield cost multiplier, and the Chennai and Bengaluru cascades. &
+Reads the \texttt{data} folder. Writes the four main and four supplementary figures (PNG and PDF) to the \texttt{figures} folder, and the results file (JSON and a readable summary) to the \texttt{results} folder. &
+Figures 1 to 3 of the main report and Figures 1 to 4 of this document; every statistic quoted in the Abstract, Results and Discussion (28 percent, 99 percent, 56 percent, p = 0.023 and 0.001, Rs 21, 29, 42, 98 and 200 per kL, the 13 percent cascade). \\
+\addlinespace
+\texttt{make\_\allowbreak supplementary\_\allowbreak tables.py} (Python) &
+Converts the data tables into the LaTeX tables of this document, with sequential row numbers, the tier words instead of codes, and the reconciliation table for the six cases from the mid-term progress report. &
+Reads the \texttt{data} and \texttt{research} folders and the results file. Writes the \texttt{tables} folder inside \texttt{report}. &
+All tables in Sections 2 to 7 of this document, and the list of 168 source URLs in Section 8. \\
+\addlinespace
+\texttt{style.py} (Python) &
+Sets the colours, fonts and line widths shared by all figures, so that the three tiers keep the same colour in every plot. &
+Imported by \texttt{analysis.py}. Writes nothing. &
+The appearance of every figure. \\
+\addlinespace
+\texttt{build\_\allowbreak deck.js} (JavaScript, with the pptxgenjs library and the helper \texttt{apply\_theme.js}) &
+Builds the presentation from the figures and the results file, so the numbers on the slides are read from the same results file as the report. Speaker notes are written into each slide. &
+Reads the \texttt{figures} and \texttt{results} folders. Writes the presentation file. &
+The presentation. \\
+\end{longtable}
+
+\subsection{How to rerun everything}
+
+From the submission folder, with Python 3 (pandas, numpy, scipy, statsmodels, matplotlib) and a LaTeX installation:
+
+\begin{lstlisting}[language=bash,numbers=none]
+python3 code/build_dataset.py
+python3 code/analysis.py
+python3 code/make_supplementary_tables.py
+cd report && pdflatex report.tex && pdflatex report.tex
+pdflatex supplementary.tex && pdflatex supplementary.tex
+\end{lstlisting}
+
+The first three steps take under one minute. The presentation is rebuilt with \texttt{node build\_deck.js} inside the \texttt{slides} folder after \texttt{npm install pptxgenjs}. Two files are not generated by code: the two files in \texttt{research/sources}, which are verbatim extracts typed from the CGWB 2007 manual and the CGWB 2011 compilation after reading them page by page, and the source extraction tables in \texttt{research}, which were filled by hand from the sources listed in Section 8.
+
+\subsection{Where the key numbers are computed}
+
+For a reader who wants to check one number without reading the whole script:
+
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+\item Theoretical potential and the performance ratio: \texttt{build\_dataset.py}, the lines that create the columns \texttt{potential\_kL} and \texttt{performance\_ratio} (and the \texttt{\_c070} and \texttt{\_c090} variants).
+\item Evidence tier: \texttt{build\_dataset.py}, the \texttt{tier} column in the curated performance list, with the grading rule stated in the comment above it; the observation notes record what each source says about measurement.
+\item Deflation and levelised cost: \texttt{build\_dataset.py}, the constants \texttt{LIFE}, \texttt{OM\_SHARE} and \texttt{DISC}, the capital recovery factor, and the columns \texttt{capital\_2024\_inr}, \texttt{annual\_cost\_2024\_inr} and \texttt{cost\_per\_kL\_design\_2024}.
+\item Tier medians, confidence intervals and the Mann-Whitney test: \texttt{analysis.py}, Part 1 (Performance gap).
+\item The Warud regrading check and the runoff sensitivity: \texttt{analysis.py}, Part 1, the blocks labelled \texttt{T1\_excl\_warud}, \texttt{T2\_incl\_warud} and the \texttt{median\_c070} and \texttt{median\_c090} entries.
+\item The Chennai and Bengaluru cascades: \texttt{analysis.py}, Part 2 (Mandate gap), the \texttt{mandate\_gap} dictionary.
+\item Failure-mode counts by distinct source: \texttt{build\_dataset.py} (category mapping) and \texttt{analysis.py}, Part 3.
+\item Cost medians, the Spearman and Kruskal-Wallis tests, the observed-yield multiplier: \texttt{analysis.py}, Part 4 (Cost-effectiveness).
+\end{itemize}
+
+In the code the three tiers are stored as the codes \texttt{T1}, \texttt{T2} and \texttt{T3}; these mean observed, agency-reported and design-calculated respectively, and the \texttt{tier\_name} column in the performance table carries the words.
+
+\clearpage
+\subsection{build\_dataset.py}
+\label{sec:code-build}
+\lstinputlisting[language=Python]{../code/build_dataset.py}
+
+\clearpage
+\subsection{analysis.py}
+\label{sec:code-analysis}
+\lstinputlisting[language=Python]{../code/analysis.py}
+
+\clearpage
+\subsection{make\_supplementary\_tables.py}
+\label{sec:code-tables}
+\lstinputlisting[language=Python]{../code/make_supplementary_tables.py}
+
+\clearpage
+\subsection{style.py}
+\label{sec:code-style}
+\lstinputlisting[language=Python]{../code/style.py}
+
+\clearpage
+\subsection{build\_deck.js}
+\label{sec:code-deck}
+\lstinputlisting[language=Java]{../slides/build_deck.js}

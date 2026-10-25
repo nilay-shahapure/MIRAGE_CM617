@@ -1,0 +1,39 @@
+% Shared preamble for the MIRAGE report and supplementary document
+\documentclass[10pt,a4paper,twocolumn]{article}
+\usepackage[a4paper,top=1.6cm,bottom=1.6cm,left=1.5cm,right=1.5cm,columnsep=0.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{float}
+\usepackage{setspace}
+
+\definecolor{mirageblue}{HTML}{1F4E79}
+\definecolor{mirageink}{HTML}{222222}
+\hypersetup{colorlinks=true,linkcolor=mirageblue,citecolor=mirageblue,urlcolor=mirageblue,pdftitle={MIRAGE: Measuring the Impact and Reality of Rainwater Harvesting Mandates}}
+
+\titleformat{\section}{\normalfont\fontsize{10.5}{12}\bfseries\color{mirageblue}}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\fontsize{10}{12}\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{6pt plus 2pt minus 1pt}{3pt}
+\titlespacing*{\subsection}{0pt}{4pt plus 1pt minus 1pt}{2pt}
+\captionsetup{font=small,labelfont=bf,skip=3pt}
+\setlist{nosep,leftmargin=1.2em}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+\sisetup{group-separator={,},group-minimum-digits=4}
+\renewcommand{\arraystretch}{1.12}
+\newcommand{\inr}{Rs}

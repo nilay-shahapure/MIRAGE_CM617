@@ -1,0 +1,24 @@
+step,count,where
+"Performance strand: site records identified (CGWB, CSE, Lok Sabha replies, academic, campus and company reports)",89,72 rows in research/performance_cases.csv plus 17 records logged in performance_notes.md as not accessible
+Performance strand: records not accessible (documents that could not be opened or were paywalled),17,performance_notes.md access log
+"Performance strand: records screened in detail (72 from the performance search, 6 CSE model projects from the cost search, 1 case read directly from the CGWB 2011 compilation)",79,"performance_cases.csv; cost_cases.csv C13, C14, C16-C19; CGWB 2011 p.116"
+Excluded: potential only (no actual volume reported),20,rows P1-P19 and B24
+Excluded: no catchment area or no volume,9,rows N1-N9
+"Excluded: modelled volumes (JNTU Hyderabad, 3 structures)",3,rows B30a-c
+Excluded: agency volumes with no roof area (Lok Sabha 2004 list),10,rows B3-B12
+"Excluded: mixed or non-roof catchment, aggregate, or internally inconsistent",5,"rows B28 (SV Symphony), B31 (Infosys aggregate), B32 (Goa surface runoff), A7a (Umaid Heritage), A7c (PAU, no area)"
+Included site records,32,25 rows from performance_cases.csv (A1/A1b count as one site; B1 Shram Shakti as a design calculation) + 6 from cost_cases.csv + 1 from CGWB PDF
+Included observations (some sites have several years),35,data/mirage_performance.csv: 35 observations at 31 sites
+Included as T1 observed volumes (instrument or tank record named),7,"P01, P02, P05-P07, P16, P17 (5 sites)"
+Included as T2 agency-reported volumes,9,"P03, P08-P15 (7 sites)"
+Included as T3 design calculations (CSE model projects and CGWB design note),19,P18-P36 (19 sites)
+Cost strand: case records screened,43,research/cost_cases.csv
+"Cost strand: rows with both capital cost and annual yield and a cost year, used for levelised cost",27,data/mirage_cost.csv
+Cost strand: benchmark price rows,37,research/cost_benchmarks.csv
+Functionality strand: survey records screened,46,research/functionality_surveys.csv
+Functionality strand: surveys with a measured functional / defunct split,13,data/mirage_functionality.csv
+Functionality strand: city compliance (installation) figures,7,data/mirage_compliance.csv
+Failure-mode mentions extracted,90,research/failure_modes.csv
+Failure-mode distinct sources,40,"research/failure_modes.csv, survey_or_source_id"
+Failure-mode categories after collapsing,11,data/mirage_failure_modes.csv
+Mandate jurisdictions tabulated,24,data/mirage_mandates.csv

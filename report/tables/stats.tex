@@ -1,0 +1,21 @@
+
+\begin{table}[H]\centering\small
+\caption{Performance ratio statistics by evidence tier (runoff coefficient 0.80 unless stated). Observed: instrument or tank record named; Agency: agency-reported, no instrument named; Design: design calculation.}\label{tab:stats}
+\begin{tabular}{lrrrrrr}\toprule
+Tier & n (sites) & Median & 95\% CI & Range & Share $\geq$ 99\% & Median at C 0.70 / 0.90\\ \midrule
+Observed & 7 (5) & 27.8\% & 19--76\% & 11--112\% & 14\% & 32\% / 25\%\\
+Agency & 9 (7) & 99.0\% & 64--112\% & 64--127\% & 56\% & 113\% / 88\%\\
+Design & 19 (19) & 56.2\% & 49--75\% & 35--106\% & 21\% & 64\% / 50\%\\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[H]\centering\small
+\caption{Exploratory OLS: performance ratio on evidence tier and catchment area, observed and agency-reported observations only (n = 16, R$^2$ = 0.53).}\label{tab:ols}
+\begin{tabular}{lrrr}\toprule
+Term & Coefficient & 95\% CI & p\\ \midrule
+Intercept & -0.313 & -2.343 to 1.718 & 0.745\\
+Observed tier (1 = yes) & -0.172 & -0.809 to 0.466 & 0.571\\
+log10 catchment area & 0.380 & -0.231 to 0.991 & 0.202\\
+\bottomrule\end{tabular}
+\end{table}
+Other tests: Mann-Whitney U (observed vs agency-reported) = 10, p = 0.0229; Spearman $\rho$ of ratio against $\log_{10}$ area: all observed and agency-reported 0.67 (p = 0.004), observed only 0.41 (p = 0.36). The positive area correlation across the two tiers reflects the tier split (large agency-monitored institutional roofs are agency-reported, small metered houses are observed) and is not significant within the observed tier. With Warud in the observed tier the OLS tier coefficient is not significant; the regression is exploratory and is not used for any claim in the main report. Observed median excluding the partial-year Goa 2008 observation: 25.7\% (n = 6); excluding the two storage-limited houses: 27.8\% (n = 5); Warud graded agency-reported instead of observed: observed median 25.6\% (n = 6), agency-reported median 102.4\% (n = 10), Mann-Whitney U = 2, p = 0.0010; site-level medians (years averaged): observed 28.1\%, agency-reported 99.0\%.

@@ -1,0 +1,14 @@
+func_id,label,city,year,population,sample_n,pct_functional,definition,conducted_by,research_id
+F02,"Chennai 2019, houses with a structure",Chennai,2019,houses with an RWH structure (1.62 lakh of 2.72 lakh inspected),162000.0,76.5,"1.62 lakh houses had a structure; about 38,000 of them 'needed minor repairs', so 1.24 lakh (76.5%) needed no repair. Single GCC snapshot (Aug-Sep 2019).",Greater Chennai Corporation (The News Minute),S10
+F03,Chennai Gandhinagar 2003,Chennai,2003,independent houses,309.0,50.0,'only 50 per cent had implemented RWH properly',Akashganga Trust (Down To Earth 2004),S03
+F04,Chennai approved buildings 2001-02,Chennai,2002,"buildings approved under 1994 rule, with RWH",25.0,67.0,a third of installed systems 'not properly designed and therefore ineffective',MIDS survey for CSE,S01/S02
+F05,Karnataka school structures 2007,Karnataka (rural),2007,government school rooftop structures,1269.0,11.0,"140 of 1,269 structures functional",Arghyam status report,S21
+F06,Karnataka model schools 2009,Karnataka (rural),2009,school rooftop structures,27.0,59.3,16 of 27 functioning; 3 partial; 8 defunct,Arghyam,S22
+F07,Faridabad public systems 2018-19,Faridabad,2019,"public RWH systems (parks, schools)",190.0,20.0,'around 80% had stopped working',MCF survey (The Tribune),S30
+F08,Faridabad public systems 2024,Faridabad,2024,public RWH systems,200.0,25.0,'around 70 to 80 per cent' non-functional (midpoint),civic sources (The Tribune),S31
+F09,Gurugram pits 2023,Gurugram,2023,"RWH pits, public and private",500.0,30.0,'around 70%' lying defunct,MCG / GMDA (The Tribune),S32
+F10,Delhi Dwarka societies 2024 (structural),Delhi,2024,group housing societies with RWH,176.0,83.5,176 minus 4 non-functional minus 25 dry pits,DJB action-taken report to NGT,S27
+F11,Delhi Dwarka societies 2024 (clean recharge),Delhi,2024,group housing societies with RWH,176.0,32.4,57 of 176 without faecal coliform in recharge water (119 contaminated),DJB action-taken report to NGT,S27
+F12,Bengaluru BWSSB connections 2023 (expert estimate),Bengaluru,2023,BWSSB connections with RWH,,40.0,'only about 40% of BWSSB connections have functional RWH systems' (estimate),S. Vishwanath (Deccan Herald),S17
+F13,Kaithal government buildings 2018,Kaithal,2018,government-building systems,5.0,0.0,all five choked after the first year,The Tribune field report,S33
+F14,Sirsa park systems 2025,Sirsa,2025,municipal park systems,4.0,50.0,2 of 4 dead within two years,The Tribune field report,S34

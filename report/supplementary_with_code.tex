@@ -1,0 +1,83 @@
+\input{preamble}
+\usepackage{needspace}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\fontsize{6.6pt}{7.6pt}\selectfont,breaklines=true,breakatwhitespace=false,numbers=left,numberstyle=\tiny\color{gray},numbersep=5pt,frame=single,framerule=0.3pt,rulecolor=\color{gray!60},showstringspaces=false,keywordstyle=\color{mirageblue},commentstyle=\color{gray!80!black}\itshape,stringstyle=\color{violet!70!black},columns=fullflexible,keepspaces=true,postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},literate={₹}{{Rs}}1 {×}{{x}}1 {→}{{->}}1 {−}{{-}}1 {ρ}{{rho}}1 {²}{{2}}1 {³}{{3}}1 {≥}{{>=}}1 {≤}{{<=}}1 {≈}{{~}}1 {–}{{-}}1 {—}{{-}}1 {“}{{"}}1 {”}{{"}}1 {‘}{{'}}1 {’}{{'}}1 {é}{{e}}1 {…}{{...}}1}
+\geometry{top=2cm,bottom=2cm,left=1.8cm,right=1.8cm}
+\begin{document}
+\onecolumn
+\begin{center}
+{\LARGE\bfseries\color{mirageblue} MIRAGE: Supplementary Information, with code}\\[4pt]
+{\large Measuring the Impact and Reality of Rainwater Harvesting Mandates. A meta-analysis of rooftop rainwater harvesting performance in Indian cities}\\[6pt]
+Vedant Abhangrao (23B2262) \,|\, Nilay Shahapure (23B2206) \,|\, Arjun Jhunjhunwala (23B1245) \,|\, Yash Krishnani (23B1240)\\[2pt]
+{\small CM617 Sustainability Principles and Practices, IIT Bombay. October 2026.}
+\end{center}
+
+\tableofcontents
+
+\section{Data and code supplied with this report}
+The submission folder contains, besides this document and the main report: the harmonised dataset (performance observations with computed potential and ratios, cost rows with deflation and levelised cost, functionality estimates, installation figures, failure-mode counts, the mandate table, the screening log and the price-index series used for deflation); the source extraction tables, one row per source record, each carrying the URL and the sentence or field values taken from the page for every number used, together with verbatim extracts from the two CGWB documents and a codebook for every column; the Python scripts that rebuild the dataset, the statistics, the figures and the tables in this document from the source extraction tables (run in the order dataset, analysis, tables); and a results summary listing every number quoted in the report.
+
+\section{Screening and inclusion}
+The work was organised as four parallel searches, called strands below: performance (yield against potential), cost, functionality and failure modes, and mandates. The flow diagram and the log give the counts for each.
+\begin{figure}[H]\centering\includegraphics[width=0.95\textwidth]{../figures/figS4_screening_flow.pdf}
+\caption{Screening and inclusion flow for the four research strands.}\end{figure}
+\input{tables/screening_table}
+
+\paragraph{Inclusion rules for the performance strand.} A record entered the ratio analysis if it reported (i) a roof or whole-site catchment area, (ii) an actual harvested, collected or recharged volume for a stated period, and (iii) rainfall for the site or a city for which an IMD normal exists. Records reporting only design potential, only a storage capacity, only a structure count, or volumes for aggregated multi-site portfolios were excluded. Rows were graded by one mechanical rule into three evidence tiers: observed, if the source names a flow meter, a measuring device at the recharge well or a tank-filling record for that site; agency-reported, if an agency states an annual volume with no instrument named, or states it as a share of estimated runoff; design-calculated, if the source itself labels the figure a design calculation. The rule puts both CGWB Maharashtra demonstrations (Ramtek and Warud) in the observed tier, because CGWB describes an identical pipe train with a flow meter for both and uses the same sentence (``As per estimation, a total of X cu. m of rain was received on the roof of the building, out of which Y cu. m was actually recharged'') for both. Warud's Y is a round 90\% of X, which may be an assumed share; the main report therefore gives the result both ways (Table~\ref{tab:stats}). Shram Shakti Bhawan, whose CGWB figure is labelled ``expected recharge'', is design-calculated. The JNTU Hyderabad rows (modelled monthly volumes equal to rainfall $\times$ area $\times$ 0.9) were excluded as modelled rather than reported.
+
+\paragraph{Harmonisation choices.} Theoretical potential $P = A \times R \times C/1000$ with $C = 0.80$. The CGWB (2007) manual gives 0.7 for concrete, 0.75 tiled, 0.8 asbestos and 0.9 GI sheet (Table 7.2, verified in the manual); the CGWB/National Water Mission 2020 guide gives 0.75 to 0.95 for roofs. Most included roofs are RCC; 0.80 is the midpoint of the manual's range and the value used in the CGWB 2003 rooftop tables and the midway check-in. The 0.70 and 0.90 columns in Table~\ref{tab:perf} and the sensitivity figure below show that the tier medians move by a few points but the ordering does not change. Rainfall: site-year where reported (Goa 2010, Bhubaneswar 2004 to 2006); rain received on the roof divided by area where the source reports it that way (Ramtek, Warud); the source's own city average where that is what the source used (CSE pages); IMD 1991-2020 normals otherwise. No IMD normal was located for Chandigarh, so the CSE figure (1,059.3 mm) is used for both Chandigarh cases; using the CGWB district normal (742 mm) instead raises both ratios further above 100\%, which does not change the conclusion that they are design-derived. For Ramtek the implied rainfall (215.7 m$^3$ over 360 m$^2$ = 599 mm) is well below the taluka average of 1,043.7 mm, so the monitored period was probably not a full year; using the taluka average would lower the Ramtek ratio from 11\% to 6\%. Catchment: for the CSE model projects the only area given is ``total rooftop and surface area'', so the design-calculated potentials apply a roof coefficient to roof plus paved and open ground; this is why that tier is used only as the design-share reference and not in the observed versus agency-reported comparison.
+
+\section{Reconciliation with the midway check-in}
+The midway check-in is the mid-term progress report submitted earlier in the course. The table below compares each of its six cases with the final dataset.
+\input{tables/recon_table}
+The midway text also said that ``around ten studies reported only estimated or design-stage potential''; the final screening found 20 such records. It said ``over 50 sources'' were screened; the final count is 79 performance records plus 43 cost and 46 functionality records. Two items from the Milestone 1 plan were not carried through: system age as a regression predictor (year of installation is recorded where known, but too few observations have a stated study year to compute age), and campus sustainability reports as a data source (the Infosys and Wipro reports give portfolio totals without catchment areas and were excluded).
+
+\needspace{6\baselineskip}\section{Performance dataset}
+\input{tables/perf_table}
+\input{tables/perf_notes}
+\input{tables/stats}
+\begin{figure}[H]\centering
+\includegraphics[width=0.46\textwidth]{../figures/figS1_sensitivity_runoff.pdf}\hfill
+\includegraphics[width=0.46\textwidth]{../figures/figS2_ratio_vs_area.pdf}
+\caption{Left: median performance ratio by tier for runoff coefficients 0.70, 0.80 and 0.90. Right: performance ratio against catchment area; the ratio does not rise with size within the observed tier.}\end{figure}
+
+\section{Cost dataset and benchmarks}
+\paragraph{Method.} Capital cost in the source's cost year was converted to 2024 rupees with the CPI-IW annual averages (RBI Handbook Table 37; the 1982, 2001 and 2016 base series linked with the published factors 4.63 and 2.88). Annual cost = capital$_{2024}$ $\times$ (CRF + 0.02), where CRF is the capital recovery factor for 15 years at 8\% (0.1168) and 0.02 is the CGWB manual's O\&M norm (2\% of capital per year, Section 9). The 15-year life and the 2\% O\&M share are the manual's norms; the 8\% discount rate is an assumption (a real rate typical for public infrastructure), and the manual's own worked example uses a 15\% rate, which is reported as a sensitivity in Table~\ref{tab:coststats}. Cost per kL = annual cost divided by the annual yield stated by the source. For CSE Delhi projects that yield is already a design share (35 to 85\%) of area $\times$ rainfall; for Shram Shakti Bhawan it is the CGWB design recharge; for the Bhubaneswar HP building it is the mean of three monitored years. The observed-yield case multiplies all costs by the design-calculated median divided by the observed median. This single multiplier is an approximation: individual design shares range from 35 to 85\% of potential, and non-CSE rows state their yield differently, so per-row rescaling would move individual systems but not the median by much. The BEL Bengaluru project (Rs 57 lakh) was excluded because its cost includes a 170 ML surface reservoir, and SV Symphony because its reported volumes are physically implausible for its roof area.
+\input{tables/cost_table}
+\input{tables/cost_stats}
+\begin{figure}[H]\centering\includegraphics[width=0.5\textwidth]{../figures/figS3_capital_per_m2.pdf}
+\caption{Capital cost per m$^2$ of catchment (2024 rupees) against catchment area, 26 systems with a stated area.}\end{figure}
+\input{tables/bench_table}
+
+\section{Functionality, installation and failure modes}
+\input{tables/func_table}
+\paragraph{Notes on the Chennai 2019 figures.} The Tamil Nadu government and the Greater Chennai Corporation reported the 2019 inspection drive in two snapshots: over 2 lakh buildings (1.36 lakh correctly installed and maintained, 37,131 needing maintenance, 60,461 without a structure) and, a few weeks later, about 2.72 lakh houses (1.62 lakh with a structure, about 38,000 of them needing minor repairs, almost 70,000 without). To avoid mixing snapshots, both steps of the Chennai cascade use the second one: 1.62 of 2.72 lakh houses had a structure (59.6\%) and 1.24 of 1.62 lakh needed no repair (76.5\%). The first snapshot gives a similar functional share (1.36 of 1.73 lakh, 78.6\%). Both reach us through press reports (The News Minute); no original press release was located.
+\input{tables/compl_table}
+\input{tables/fm_table}
+\paragraph{Outcome evidence.} The often-quoted 6 to 8 m rise in Chennai groundwater after 2003 traces only to the Rain Centre's own statements; the CMWSSB figure of a 4 m net rise and The Hindu's 2006 report of a 2 m monsoon rise are not attributed to rooftop RWH specifically. In 2019 the Rain Centre reported 90\% of its 88 monitoring wells dry despite 16 years of the mandate. BWSSB data suggest about 10\% of Bengaluru's runoff is harvested, around 3\% of demand. Delhi Jal Board paid Rs 325.7 million in RWH rebates and collected Rs 567.1 million in penalties between 2017 and 2019 (details and URLs in the functionality search log supplied with the data).
+
+\section{Mandate instruments and reference inputs}
+\input{tables/mandate_table}
+\input{tables/refinputs_table}
+
+\section{Sources}
+\input{tables/sources_table}
+
+\section{Statement of contributions}
+\textbf{Contributions.} Vedant Abhangrao: search strategy, screening log and the mandate strand. Nilay Shahapure: data harmonisation, analysis code, figures and this supplementary document. Arjun Jhunjhunwala: cost and benchmark strand, deflation and levelised cost. Yash Krishnani: functionality and failure-mode strand, report drafting and the presentation. All four members extracted records and cross-checked each other's rows against the source quotes.
+
+
+\section{Limitations in full}
+\begin{itemize}
+\item The observed tier has seven observations at five sites. Two are single-house tank records that count only what the tank could hold, so they are lower bounds. The Goa 2008 value is a partial season. Warud (112\%) is graded observed by the stated rule but its volume is a round 90\% of rain received and may be an assumed share; grading it agency-reported gives an observed median of 26\%. The result (about a quarter of potential) is therefore indicative and should be read with the sensitivity cases in Table~\ref{tab:stats}. At Ramtek the low ratio reflects the intake capacity of the dug well (19 of 215.7 m$^3$ accepted, the rest overflowing), a technical limit rather than neglect.
+\item Publication bias: demonstration and showcase systems are more likely to be written up than failed ones. This biases the measured ratio upward and the estimated gap downward.
+\item Rainfall basis varies: four observed or agency-reported observations use an IMD city normal (1991-2020, or 1981-2010 for Panaji) and four use the city average quoted by the source (CSE), rather than the rainfall of the year the volume was measured, so individual ratios can be off by the year's rainfall anomaly; two (Ramtek, Warud) use rain received on the roof divided by area. No IMD normal for Chandigarh was found on an official page.
+\item For Panjab University and CSIO the roof area (CSE, 2010) and the recharged volume (Lok Sabha, 2004) come from different documents about the same structure.
+\item Functionality surveys use different definitions (``correctly installed and maintained'', ``needing no repair'', ``functional'', ``defunct'', ``dry pit'') and sample different populations (households, public buildings, schools). Two of the 13 estimates (Dwarka structural and Dwarka clean recharge) are two definitions applied to one DJB report, and the Bengaluru figure is an expert estimate without a sample. Several reach us only through press reports; where the original was found it is cited.
+\item Cost rows are dominated by one programme (CSE Delhi model projects, 2000 to 2004) whose costs are the marginal cost of recharge structures on large campuses. The five post-2010 rows are far more expensive. The levelised cost depends on the assumed life and discount rate (Table~\ref{tab:coststats}).
+\item The regression is exploratory and shows association only; with 16 observations and two predictors it cannot support causal claims, and with Warud graded observed the tier coefficient is not significant, so no claim in the main report rests on it.
+\item An economic explanation competes with the institutional one for recharge systems: at observed yield the owner's cost per kL exceeds the piped tariff while the recharge benefit is shared, so weak private incentives, not only weak enforcement, can explain neglect. The two explanations lead to the same recommendation (tie rebates to periodic functional inspection).
+\item Several government documents (on the older CGWB website and the Rajya Sabha archive) and journal full texts could not be accessed; 17 performance records are logged as not accessible.
+\end{itemize}
+\input{code_appendix}
+\end{document}

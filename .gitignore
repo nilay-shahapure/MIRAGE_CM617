@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.fls
+report/*.fdb_latexmk
+slides/node_modules/
+slides/package-lock.json

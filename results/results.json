@@ -1,0 +1,308 @@
+{
+  "performance": {
+    "T1": {
+      "n": 7,
+      "sites": 5,
+      "median": 0.2784441398217958,
+      "ci_lo": 0.1927690198766278,
+      "ci_hi": 0.7601351351351351,
+      "min": 0.1101005043762052,
+      "max": 1.125,
+      "share_ge_1": 0.14285714285714285,
+      "median_c070": 0.3182218740820523,
+      "median_c090": 0.2475059020638184
+    },
+    "T2": {
+      "n": 9,
+      "sites": 7,
+      "median": 0.9903029534795283,
+      "ci_lo": 0.6421613798806781,
+      "ci_hi": 1.1154041527873304,
+      "min": 0.6379918337045285,
+      "max": 1.267113679908204,
+      "share_ge_1": 0.5555555555555556,
+      "median_c070": 1.131774803976604,
+      "median_c090": 0.880269291981803
+    },
+    "T3": {
+      "n": 19,
+      "sites": 19,
+      "median": 0.562476005738417,
+      "ci_lo": 0.4941667490227002,
+      "ci_hi": 0.748980581272966,
+      "min": 0.3492437334586166,
+      "max": 1.062508895405219,
+      "share_ge_1": 0.21052631578947367,
+      "median_c070": 0.6428297208439052,
+      "median_c090": 0.4999786717674819
+    },
+    "T1_vs_T2_mannwhitney": {
+      "U": 10.0,
+      "p": 0.022902097902097907
+    },
+    "T1_excl_partial_year": {
+      "n": 6,
+      "median": 0.2572294776119403
+    },
+    "T1_excl_storage_limited": {
+      "n": 5,
+      "median": 0.2784441398217958
+    },
+    "T1_excl_warud": {
+      "n": 6,
+      "median": 0.2558265475228382
+    },
+    "T2_incl_warud": {
+      "n": 10,
+      "median": 1.0237033452964652,
+      "mannwhitney_U": 2.0,
+      "mannwhitney_p": 0.000999000999000999
+    },
+    "site_level": {
+      "T1": {
+        "n": 5,
+        "median": 0.28125
+      },
+      "T2": {
+        "n": 7,
+        "median": 0.9903029534795283
+      }
+    },
+    "regression": {
+      "n": 16,
+      "r2": 0.5333718017028466,
+      "params": {
+        "const": -0.312670998187074,
+        "observed": -0.17153991510997563,
+        "log10_area": 0.3800849384204712
+      },
+      "pvalues": {
+        "const": 0.7446677110859452,
+        "observed": 0.5709323563772233,
+        "log10_area": 0.2019470624400444
+      },
+      "conf_int": {
+        "const": [
+          -2.3430067275627526,
+          1.7176647311886044
+        ],
+        "observed": [
+          -0.8089781760307415,
+          0.4658983458107902
+        ],
+        "log10_area": [
+          -0.23088715770129642,
+          0.9910570345422388
+        ]
+      },
+      "spearman_area_all": {
+        "rho": 0.6745680223718901,
+        "p": 0.004152342960481678
+      },
+      "spearman_area_T1": {
+        "rho": 0.4076871241636057,
+        "p": 0.36394248359194625
+      }
+    }
+  },
+  "mandate_gap": {
+    "chennai": {
+      "mandated": 1.0,
+      "with_structure": 0.596,
+      "functional": 0.45594,
+      "delivered": 0.12695382111034956
+    },
+    "bengaluru": {
+      "with_structure": 0.17600000000000002,
+      "functional": 0.0704,
+      "delivered": 0.019602467443454424
+    },
+    "functionality_median": 40.0,
+    "functionality_n": 13,
+    "functionality_surveys": 12,
+    "functionality_min": 0.0,
+    "functionality_max": 83.5,
+    "functionality_structural_only_median": 45.0,
+    "chennai_excl_warud_delivered": 0.11664155607756284
+  },
+  "failure_modes": [
+    {
+      "category": "No maintenance, abandoned",
+      "mentions": 18,
+      "distinct_sources": 18,
+      "cities": "Bengaluru, Chennai, Delhi, Delhi (Dwarka), Delhi (school), Delhi schools, Faridabad, Gurugram, Hyderabad, Karnataka schools"
+    },
+    {
+      "category": "No awareness, incentive or enforcement",
+      "mentions": 15,
+      "distinct_sources": 15,
+      "cities": "Bengaluru, Chennai, Delhi, Faridabad, Karnataka schools, Mumbai"
+    },
+    {
+      "category": "Poor design or construction",
+      "mentions": 17,
+      "distinct_sources": 15,
+      "cities": "Bengaluru, Chennai, Delhi, Delhi (Dwarka), Faridabad, Karnataka schools, Mumbai, Sirsa"
+    },
+    {
+      "category": "Token structure, built for compliance only",
+      "mentions": 10,
+      "distinct_sources": 10,
+      "cities": "Bengaluru, Chennai, Gurugram, Mumbai, Thane"
+    },
+    {
+      "category": "Recharge pit or well silted or choked",
+      "mentions": 7,
+      "distinct_sources": 7,
+      "cities": "Chennai, Delhi, Delhi (Dwarka), Faridabad, Kaithal"
+    },
+    {
+      "category": "Downpipes or conveyance broken or disconnected",
+      "mentions": 6,
+      "distinct_sources": 6,
+      "cities": "Bengaluru, Chennai, Delhi schools, Karnataka schools"
+    },
+    {
+      "category": "Other (space, vandalism, roof-only design)",
+      "mentions": 7,
+      "distinct_sources": 6,
+      "cities": "Bengaluru, Chennai, Delhi, Karnataka schools"
+    },
+    {
+      "category": "Storage undersized, overflow or leak",
+      "mentions": 3,
+      "distinct_sources": 3,
+      "cities": "Bengaluru, Karnataka schools, Mumbai"
+    },
+    {
+      "category": "Filter clogged or absent",
+      "mentions": 3,
+      "distinct_sources": 3,
+      "cities": "Bengaluru, Chennai, Karnataka schools"
+    },
+    {
+      "category": "First flush absent or not operated",
+      "mentions": 2,
+      "distinct_sources": 2,
+      "cities": "Delhi, Karnataka schools"
+    },
+    {
+      "category": "Water quality concerns, system disused",
+      "mentions": 2,
+      "distinct_sources": 2,
+      "cities": "Delhi (Dwarka), Karnataka schools"
+    }
+  ],
+  "failure_mode_counts": {
+    "sources": 40,
+    "mentions": 90,
+    "categories": 11
+  },
+  "cost": {
+    "overall": {
+      "n": 27,
+      "median": 20.88918507369181,
+      "ci_lo": 8.458195212903828,
+      "ci_hi": 43.25547377642684,
+      "q25": 6.891785842352601,
+      "q75": 65.90208210639457
+    },
+    "individual house": {
+      "n": 3,
+      "median": 39.80327159013567,
+      "min": 28.75095907471962,
+      "max": 43.25547377642684
+    },
+    "industrial": {
+      "n": 3,
+      "median": 110.66046752592732,
+      "min": 6.767831205600211,
+      "max": 151.74743705107787
+    },
+    "institutional": {
+      "n": 15,
+      "median": 15.182365456609912,
+      "min": 1.395415397934516,
+      "max": 198.50237034106084
+    },
+    "residential colony": {
+      "n": 6,
+      "median": 15.418804930517313,
+      "min": 1.7989537110762757,
+      "max": 98.29004049316846
+    },
+    "system_both": {
+      "n": 2,
+      "median": 118.68276064682105
+    },
+    "system_recharge": {
+      "n": 22,
+      "median": 14.630335991342914
+    },
+    "system_storage": {
+      "n": 3,
+      "median": 43.25547377642684
+    },
+    "kruskal_scale": {
+      "H": 2.06507936507937,
+      "p": 0.5590096854741489
+    },
+    "spearman_area_cost": {
+      "n": 26,
+      "rho": -0.7360683760683759,
+      "p": 1.8192601358418314e-05
+    },
+    "spearman_area_capital_per_m2": {
+      "n": 26,
+      "rho": -0.7264957264957265,
+      "p": 2.640720613090856e-05
+    },
+    "delivered_yield_multiplier": 2.0200676735319396,
+    "overall_delivered_median": 42.19756749379073,
+    "cse_delhi_only": {
+      "n": 20,
+      "median": 13.41609303839299
+    },
+    "post2010": {
+      "n": 5,
+      "median": 98.29004049316846
+    },
+    "sensitivity_20yr_6pct_median": 16.36341075882438,
+    "sensitivity_15pct_median": 29.16176156856682,
+    "post2010_delivered_median": 198.55253343039496
+  },
+  "cost_benchmarks": [
+    [
+      "Chennai piped water, lowest slab (2025)",
+      7
+    ],
+    [
+      "Chennai piped water, top slab (2025)",
+      48
+    ],
+    [
+      "Delhi piped water, 20-30 kL slab",
+      26.4
+    ],
+    [
+      "BWSSB production cost, Cauvery (2021)",
+      41
+    ],
+    [
+      "Chennai desalination O&M (2019)",
+      68
+    ],
+    [
+      "Chennai Metrowater tanker, 9 kL (2025)",
+      77.8
+    ],
+    [
+      "Bengaluru private tanker, 12 kL, 2024 crisis",
+      158
+    ],
+    [
+      "Chennai private tanker, 12 kL, 2019 crisis",
+      375
+    ]
+  ]
+}
