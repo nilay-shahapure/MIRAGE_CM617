@@ -5,11 +5,6 @@ Team: Vedant Abhangrao (23B2262), Nilay Shahapure (23B2206), Arjun Jhunjhunwala 
 
 A meta-analysis of published performance, functionality and cost data for rooftop rainwater harvesting (RWH) systems in Indian cities, asking what the mandates actually deliver.
 
-## What to submit
-
-- The main report (two pages, IMRaD, three figures) and the Supplementary Information (fifteen pages: screening log, reconciliation with the mid-term progress report, full dataset tables, statistics, benchmarks, mandates, all source URLs, contributions, limitations), both in the report folder. A third file, the Supplementary Information with code, is the same document with an appendix that explains and prints every script.
-- The presentation (fourteen slides with speaker notes), in the slides folder.
-- The data and code folders as supplementary material.
 
 ## Headline results
 
